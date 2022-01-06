@@ -1,6 +1,11 @@
-import React from 'react'
-
-// region helper
+export { default as useEffectWithoutInit } from './helper/useEffectWithoutInit'
+export { default as useHoverWatcher } from './helper/useHoverWatcher'
+export { default as useInit } from './helper/useInit'
+export { default as useOpenWithBrowserHistory } from './helper/useOpenWithBrowserHistory'
+export { Log, LError, Log as log, LError as logEr } from './helper/Log'
+export { default as useInterval } from './helper/useInterval'
+export { default as useIsomorphicLayoutEffect } from './helper/useIsomorphicLayoutEffect'
+export { scrollTop, scrollToElement, useScrollTrigger } from './helper/Scroll'
 
 // region Helper.js
 export {
@@ -12,14 +17,15 @@ export {
   sleep,
   useWindowSize,
   isNumeric,
-  isElement
+  isElement,
+  copyToClipboard,
+  readFromClipboard,
+  Random,
+  UtilsTime,
+  UtilsObject,
+  StringUtils
 } from './helper/Helper'
 // endregion Helper.js
-
-export { default as useEffectWithoutInit } from './helper/useEffectWithoutInit'
-export { default as useHoverWatcher } from './helper/useHoverWatcher'
-export { default as useInit } from './helper/useInit'
-export { default as useOpenWithBrowserHistory } from './helper/useOpenWithBrowserHistory'
 
 // region state
 export { default as useState } from './helper/state/useState'
@@ -37,23 +43,6 @@ export { default as useLimitLine } from './helper/limit/useLimitLine'
 export { default as useLimitHeight } from './helper/limit/useLimitHeight'
 // endregion limit
 
-// endregion helper
-
-// region utils
-
-// region Utils.js
-export {
-  copyToClipboard,
-  readFromClipboard,
-  scrollTop,
-  scrollToElement,
-  Random,
-  UtilsTime,
-  UtilsObject,
-  StringUtils
-} from './utils/Utils'
-// endregion Utils.js
-
 // region Checker.js
 export {
   checkPattern,
@@ -63,11 +52,5 @@ export {
   isEmail,
   isLtr,
   isRTL
-} from './utils/Checker'
+} from './helper/Checker'
 // endregion Checker.js
-
-export { Log, LError, Log as log, LError as logEr } from './utils/Log'
-export { default as useInterval } from './utils/useInterval'
-export { default as useIsomorphicLayoutEffect } from './utils/useIsomorphicLayoutEffect'
-
-// endregion utils
