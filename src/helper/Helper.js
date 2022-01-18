@@ -77,11 +77,9 @@ export function useWindowSize(wait = 2000, useBreakpoints = true) {
     }
   }
 
-  function debounceUpdateSize() {
-    _.debounce(function () {
-      updateSize()
-    }, wait)
-  }
+  const debounceUpdateSize = _.debounce(function () {
+    updateSize()
+  }, wait)
 
   useEffect(() => {
     window.addEventListener('resize', debounceUpdateSize)

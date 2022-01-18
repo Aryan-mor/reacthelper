@@ -1,30 +1,44 @@
-import React from "react";
+import React, { useRef } from "react";
 
-import { useHoverWatcher, useOpenWithBrowserHistory } from "react-helper";
+import { useCheckOverflowX } from "react-helper";
 import "react-helper/dist/index.css";
 
+const list = [
+  "safasf",
+  "safkksaj",
+  "askfjkajskjkasjf",
+  "askfj saljfk ajs",
+  "aksjfkaskf",
+  "asfjkasjk",
+  "skafjkjaskjf",
+  "sakfjkjaskf",
+  "askfjksja",
+  "ajwkfamsfejr",
+  "klsjavmwpji2"
+]
+
 const App = () => {
-  const [open,setOpen] = useOpenWithBrowserHistory('test')
-  const [hoverProps] = useHoverWatcher((hover)=>{
-    console.log("sakfjkasjfkja",hover)
-  })
+  const ref = useRef()
+  const isOverflow = useCheckOverflowX(ref,{wait:0, scrollScrollWidth:-40})
 
   return (
     <div>
-      <button onClick={()=>{
-        setOpen(!open)
+      {
+        isOverflow ?
+          'overflow':
+          'no Overflow'
+      }
+      <div ref={ref} style={{
+        display:'flex',
+        overflowX:'auto'
       }}>
-        open
-      </button>
-      <div
-        {...hoverProps}
-        style={{
-        padding:'60px',
-        margin:60,
-        border:open ? '15px solid red':undefined,
-        cursor:'pointer'
-      }}>
-        ssssssssssss
+        {list.map(it=>(
+          <div key={it} style={{
+            padding:'10px 40px'
+          }}>
+            {it}
+          </div>
+        ))}
       </div>
   </div>)
 }

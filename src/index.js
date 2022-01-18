@@ -6,6 +6,7 @@ export { Log, LError, Log as log, LError as logEr } from './helper/Log'
 export { default as useInterval } from './helper/useInterval'
 export { default as useIsomorphicLayoutEffect } from './helper/useIsomorphicLayoutEffect'
 export { scrollTop, scrollToElement, useScrollTrigger } from './helper/Scroll'
+export { default as useCheckOverflowX } from './helper/useCheckOverflowX'
 
 // region Helper.js
 export {
