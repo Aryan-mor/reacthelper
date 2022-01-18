@@ -19,7 +19,7 @@ const list = [
 
 const App = () => {
   const ref = useRef()
-  const isOverflow = useCheckOverflowX(ref,{wait:0, scrollScrollWidth:-40})
+  const [isOverflow,overflowLeft,overflowRight] = useCheckOverflowX(ref,{wait:0, scrollScrollWidth:-40})
 
   return (
     <div>
@@ -27,6 +27,12 @@ const App = () => {
         isOverflow ?
           'overflow':
           'no Overflow'
+      }
+      {
+        overflowLeft && "      left"
+      }
+      {
+        overflowRight&& "    right"
       }
       <div ref={ref} style={{
         display:'flex',

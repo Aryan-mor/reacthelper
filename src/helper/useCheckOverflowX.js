@@ -6,11 +6,27 @@ export default function UseCheckOverflowX(
   { wait = 300, offset = 0 } = {}
 ) {
   const [isOverflow, setIsOverflow] = useState(false)
+  const [scrollLeft, setScrollLeft] = useState(false)
+  const [scrollRight, setScrollRight] = useState(true)
   const { width } = useWindowSize(wait, false)
   useEffect(() => {
     try {
       setIsOverflow(ref.current.offsetWidth + offset < ref.current.scrollWidth)
     } catch {}
+    try {
+      ref.current.addEventListener('scroll', () => {
+        setScrollLeft(ref.current.scrollLeft > 5)
+
+        setScrollRight(
+          !(
+            ref.current.offsetWidth + ref.current.scrollLeft + 10 >=
+            ref.current.scrollWidth
+          )
+        )
+      })
+    } catch (e) {
+      console.log('MEOW error', e)
+    }
   }, [width])
-  return isOverflow
+  return [isOverflow, scrollLeft, isOverflow && scrollRight]
 }
