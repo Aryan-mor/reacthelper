@@ -11,6 +11,7 @@ export { default as useCheckOverflowX } from './helper/useCheckOverflowX'
 // region Helper.js
 export {
   toNumberSafe,
+  toArray,
   tryIt,
   getSafe,
   isServer,

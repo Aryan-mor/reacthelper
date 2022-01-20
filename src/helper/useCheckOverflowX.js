@@ -24,9 +24,7 @@ export default function UseCheckOverflowX(
           )
         )
       })
-    } catch (e) {
-      console.log('MEOW error', e)
-    }
+    } catch (e) {}
   }, [width])
   return [isOverflow, scrollLeft, isOverflow && scrollRight]
 }

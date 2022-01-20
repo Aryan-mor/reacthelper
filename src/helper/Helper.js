@@ -6,6 +6,11 @@ export const toNumberSafe = (x) => {
   return isNumeric(x) ? _.toNumber(x) : x
 }
 
+export const toArray = (x) => {
+  if (_.isString(x) || _.isNumber(x)) return [x]
+  return _.toArray(x)
+}
+
 export const tryIt = (fun, defaultVal) => {
   try {
     return fun()
