@@ -1,7 +1,7 @@
 {
   "name": "@aryan-mor/react-helper",
   "version": "1.0.5",
-  "description": "React helper (Log, Helper, Listener)",
+  "description": "React helper (Log, Helper, Listener, ...)",
   "author": "Aryan-mor",
   "license": "MIT",
   "repository": "aryan-mor/react-helper",
