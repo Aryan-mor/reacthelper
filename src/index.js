@@ -33,6 +33,7 @@ export {
 // region state
 export { default as useState } from './helper/state/useState'
 export { default as useBooleanState } from './helper/state/useBooleanState'
+export { default as useDebounce } from './helper/state/useDebounce'
 export {
   default as useStateWithCallback,
   useStateWithCallbackInstant,
