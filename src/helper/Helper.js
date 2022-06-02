@@ -94,6 +94,59 @@ export function useWindowSize(wait = 2000, useBreakpoints = true) {
   return size
 }
 
+export function autoReadSMS(cb) {
+  // used AbortController with setTimeout so that WebOTP API (Autoread sms) will get disabled after 1min
+  const signal = new AbortController()
+
+  setTimeout(() => {
+    signal.abort()
+  }, 170000)
+
+  async function main() {
+    if ('OTPCredential' in window) {
+      try {
+        if (navigator.credentials) {
+          try {
+            await navigator.credentials
+              .get({ abort: signal, otp: { transport: ['sms'] } })
+              .then((content) => {
+                if (content && content.code) {
+                  cb(content.code)
+                }
+              })
+          } catch (e) {}
+        }
+      } catch (err) {}
+    }
+  }
+
+  main()
+}
+
+export function getScrollbarWidth() {
+  try {
+    if (document.body.scrollHeight <= window.innerHeight) return 0
+    // Creating invisible container
+    const outer = document.createElement('div')
+    outer.style.visibility = 'hidden'
+    outer.style.overflow = 'scroll' // forcing scrollbar to appear
+    outer.style.msOverflowStyle = 'scrollbar' // needed for WinJS apps
+    document.body.appendChild(outer)
+
+    // Creating inner element and placing it in the container
+    const inner = document.createElement('div')
+    outer.appendChild(inner)
+
+    // Calculating difference between container's full width and the child width
+    const scrollbarWidth = outer.offsetWidth - inner.offsetWidth
+
+    // Removing temporary elements from the DOM
+    outer.parentNode.removeChild(outer)
+
+    return scrollbarWidth
+  } catch {}
+}
+
 // endregion functions
 
 // region checker

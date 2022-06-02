@@ -19,6 +19,8 @@ export {
   isClient,
   sleep,
   useWindowSize,
+  autoReadSMS,
+  getScrollbarWidth,
   isNumeric,
   isElement,
   copyToClipboard,
