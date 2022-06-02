@@ -25,6 +25,34 @@ class Example extends Component {
 }
 ```
 
+## state with browser history: useOpenWithBrowserHistory
+```jsx
+import React, { Component } from 'react'
+
+import MyComponent from 'react-helper'
+import 'react-helper/dist/index.css'
+
+function Page{
+  //handleOpen and handleClose it's direct handler
+  const [open, setOpen, handleOpen, handleClose] = useOpenWithBrowserHistory("uniq-key")
+  
+  return (
+    <div>
+        // <button onClick={handleOpen}>
+        <button onClick={setOpen}>
+           open
+        </button>
+        <Popup
+          open={open} 
+          //onClose={()=>setOpen(false)}
+          onClose={handleClose}/>
+    </div>
+  )
+}
+```
+
+
+
 ## License
 
 MIT © [Aryan-mor](https://github.com/Aryan-mor)
