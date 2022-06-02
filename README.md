@@ -25,7 +25,8 @@ class Example extends Component {
 }
 ```
 
-## state with browser history: useOpenWithBrowserHistory
+## useOpenWithBrowserHistory
+state with browser history: 
 ```jsx
 import React, { Component } from 'react'
 
