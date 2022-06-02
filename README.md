@@ -7,7 +7,7 @@
 ## Install
 
 ```bash
-npm install --save react-helper
+npm install --save npm i @aryan-mor/react-helper
 ```
 
 ## Usage
