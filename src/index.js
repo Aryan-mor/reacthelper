@@ -34,6 +34,7 @@ export {
 
 // region state
 export { default as useState } from './helper/state/useState'
+export { default as useDynamicState } from './helper/state/useDynamicState'
 export { default as useBooleanState } from './helper/state/useBooleanState'
 export { default as useDebounce } from './helper/state/useDebounce'
 export {
